@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
     }
-
+//test
 
     void Update()
     {
