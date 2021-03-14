@@ -10,11 +10,13 @@ public class BoundsDetector : MonoBehaviour
     private GameObject merchant;
     public bool isProximityMerchant = false;
 
+    private GameObject tutTerry;
     public bool isProximityTutTerry = false; //Yo colin wanna use this to detect terry so we just need one script for the main player
 
     void Awake()
     {
         merchant = GameObject.FindWithTag("ShopKeep");
+        tutTerry = GameObject.FindWithTag("TutTerry");
     }
     // Start is called before the first frame update
     void Start()
