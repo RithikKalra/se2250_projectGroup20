@@ -33,7 +33,7 @@ public class BoundsDetector : MonoBehaviour
     void LateUpdate()
     {
 
-        if (Vector3.Distance(transform.position, merchant.transform.position) < 5)
+        if (Vector3.Distance(transform.position, merchant.transform.position) < 2)
             isProximityMerchant = true;
         else
             isProximityMerchant = false;
