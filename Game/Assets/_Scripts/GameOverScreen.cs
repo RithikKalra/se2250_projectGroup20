@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+//update
 public class GameOverScreen : MonoBehaviour
 {
     public void Setup()
