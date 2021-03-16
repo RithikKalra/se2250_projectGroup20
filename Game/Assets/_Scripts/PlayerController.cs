@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
         Transform healthBarTransform = Instantiate(HealthBar, new Vector3(0f, 0.5f), Quaternion.identity);
         HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
-        healthBar.Setup(healthSystem);
+        //healthBar.Setup(healthSystem);
 
         healthBarTransform.transform.parent = GameObject.Find("Player").transform;
     }
