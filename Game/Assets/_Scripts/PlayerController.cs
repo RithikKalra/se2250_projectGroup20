@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
         healthSystem = new HealthSystem(100);
 
         Transform healthBarTransform = Instantiate(HealthBar, new Vector3(0f, 0.5f), Quaternion.identity);
-        HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
-        //healthBar.Setup(healthSystem);
+        HealthBar hb = healthBarTransform.GetComponent<HealthBar>();
 
         healthBarTransform.transform.parent = GameObject.Find("Player").transform;
+
+        hb.Setup(healthSystem);
     }
 
     void Update()
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
+
+        //Debug.Log("Collided");
 
         healthSystem.Damage(10);
     }
