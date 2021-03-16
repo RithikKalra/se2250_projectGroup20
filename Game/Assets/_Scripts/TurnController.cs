@@ -24,21 +24,18 @@ public class TurnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PerformTurn();
-    }
-
-    public void PerformTurn()
-    {
-        if (state == State.PlayerTurn)
+        player.SetIsTurn(true);
+        enemy.SetIsTurn(false);
+        player.Move(() =>
         {
-            player.SetIsTurn(true);
-            enemy.SetIsTurn(false);
-            player.Move(() =>
-            {
-                state = State.EnemyTurn;
-            });
-        }
-        else if (state == State.EnemyTurn)
+            state = State.EnemyTurn;
+        });
+        
+        
+        //PerformTurn();
+    }
+    void LateUpdate(){
+        if (state == State.EnemyTurn)
         {
             enemy.SetIsTurn(true);
             player.SetIsTurn(false);
@@ -47,5 +44,32 @@ public class TurnController : MonoBehaviour
                 state = State.PlayerTurn;
             });
         }
+
     }
+
+   /* public void PerformTurn()
+    {
+        
+
+       // if (state == State.PlayerTurn)
+       // {
+        player.SetIsTurn(true);
+        enemy.SetIsTurn(false);
+        player.Move(() =>
+        {
+            state = State.EnemyTurn;
+        });
+        //}
+        if (state == State.EnemyTurn)
+        {
+            enemy.SetIsTurn(true);
+            player.SetIsTurn(false);
+            enemy.Move(() =>
+            {
+                state = State.PlayerTurn;
+            });
+        }
+        
+    }
+    */
 }
