@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private HealthSystem healthSystem;
 
     public GameOverScreen GameOverScreen;
+
+    private bool isTurn;
 
     void Start()
     {
@@ -29,20 +32,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, movePoint.position) == 0f)
-        {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
-                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
-                movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-        }
-
         if (healthSystem.GetHealth() <= 0)
         {
             GameOver();
         }
+    }
+
+    public bool GetIsTurn()
+    {
+        return isTurn;
+    }
+
+    public void SetIsTurn(bool isTurn)
+    {
+        this.isTurn = isTurn;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -56,5 +59,42 @@ public class PlayerController : MonoBehaviour
     public void GameOver()
     {
         GameOverScreen.Setup();
+    }
+
+    public void Move(Action stateChange)
+    {
+        bool moveComplete = false;
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        if (GetIsTurn())
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                movePoint.position += new Vector3(1f, 0f, 0f);
+                moveComplete = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                movePoint.position += new Vector3(-1f, 0f, 0f);
+                moveComplete = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                movePoint.position += new Vector3(0f, 1f, 0f);
+                moveComplete = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                movePoint.position += new Vector3(0f, -1f, 0f);
+                moveComplete = true;
+            }
+        }
+
+        if (moveComplete)
+        {
+            stateChange();
+
+        }
+        
     }
 }
