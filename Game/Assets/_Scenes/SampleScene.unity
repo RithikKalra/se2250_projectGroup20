@@ -779,6 +779,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347887404}
   m_CullTransparentMesh: 0
+--- !u!1 &359950432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269903284963384685, guid: d0794f0de96046849b053a89b084ae0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1269903286095824166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &359950435
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359950432}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.92
 --- !u!1 &410571634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   movePoint: {fileID: 627095878}
-  HealthBar: {fileID: 506631402394354753, guid: 808a1ed47e3a8f348adc13d4a333cd68,
+  HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
     type: 3}
   GameOverScreen: {fileID: 872936589}
 --- !u!212 &1004216502
