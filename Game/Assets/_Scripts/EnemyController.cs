@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-//update
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     public float moveSpeed = 2.0f;
     public Transform movePoint;
-
     private bool isTurn;
+    private SlimeMovement marker;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
+        marker= GetComponent<SlimeMovement>();
     }
 
     public bool GetIsTurn()
@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Action stateChange)
     {
+        marker.SelectTarget();
         bool moveComplete = false;
         System.Random random = new System.Random();
         int randomizer = random.Next(1, 5);
