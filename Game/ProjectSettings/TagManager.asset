@@ -8,6 +8,10 @@ TagManager:
   - TutTerry
   - ShopButton
   - ShopMenu
+  - MerchantPrompt
+  - TalkButton
+  - TutTerryPrompt
+  - QuestMenu
   layers:
   - Default
   - TransparentFX
