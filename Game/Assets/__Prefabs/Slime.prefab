@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   movePoint: {fileID: 1269903284580145921}
+  HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
+    type: 3}
 --- !u!61 &-2110796347633955957
 BoxCollider2D:
   m_ObjectHideFlags: 0

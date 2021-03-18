@@ -9,12 +9,22 @@ public class EnemyController : MonoBehaviour
     public Transform movePoint;
     private bool isTurn;
     private SlimeMovement marker;
+    public Transform HealthBar;
+    private HealthSystem healthSystem;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
         marker= GetComponent<SlimeMovement>();
+
+        healthSystem = new HealthSystem(100);
+        Vector3 pos= gameObject.transform.position+new Vector3(-0.5f, 0.5f,0f);
+        Transform healthBarTransform = Instantiate(HealthBar, pos, Quaternion.identity);
+        HealthBar hb = healthBarTransform.GetComponent<HealthBar>();
+        healthBarTransform.transform.parent = gameObject.transform;
+
+        hb.Setup(healthSystem);
        
     }
 
