@@ -26,7 +26,7 @@ public class TurnController : MonoBehaviour
     {
         player.SetIsTurn(true);
         enemy.SetIsTurn(false);
-        player.Move(() =>
+        player.pTurn(() =>
         {
             state = State.EnemyTurn;
         });

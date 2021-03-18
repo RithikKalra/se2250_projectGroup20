@@ -12,6 +12,7 @@ public class SlimeMovement : MonoBehaviour
         if(Marker!=null){
             Destroy(Marker);
         }
+    
         System.Random random = new System.Random();
         int randomizer = random.Next(1, 5);
         if (randomizer == 1)

@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isTurn;
 
+    private List<Attack> attackList = new List<Attack>();
+    public Attack currentAttack; 
+    public Stab stab;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -29,6 +33,8 @@ public class PlayerController : MonoBehaviour
         healthBarTransform.transform.parent = GameObject.Find("Player").transform;
 
         hb.Setup(healthSystem);
+        currentAttack=stab;
+        attackList.Add(stab);
     }
 
     void Update()
@@ -51,12 +57,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Transform rootT = other.gameObject.transform.root;
-        GameObject go = rootT.gameObject;
-
-        //Debug.Log("Collided");
-
-        healthSystem.Damage(10);
+        if(!(other.tag.Equals("Sword"))){
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            healthSystem.Damage(10);
+        }
     }
 
     public void GameOver()
@@ -64,14 +69,18 @@ public class PlayerController : MonoBehaviour
         GameOverScreen.Setup();
     }
 
-    public void Move(Action stateChange)
+    public void pTurn(Action stateChange)
     {
         bool moveComplete = false;
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
+        CycleAttack();
         if (GetIsTurn())
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) ) {
+                currentAttack.attack();
+                moveComplete = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 movePoint.position += new Vector3(1f, 0f, 0f);
                 moveComplete = true;
@@ -99,5 +108,32 @@ public class PlayerController : MonoBehaviour
 
         }
         
+    }
+    public void CycleAttack()
+    {
+        int index = attackList.IndexOf(currentAttack);
+        Attack[] seekAttack = attackList.ToArray();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(index<seekAttack.Length-1){
+                currentAttack=seekAttack[index+1];
+            }
+            else{
+                currentAttack=seekAttack[0];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(index==0){
+                currentAttack=seekAttack[seekAttack.Length-1];
+            }
+            else{
+                currentAttack=seekAttack[index-1];
+            }
+        }
+    }
+    public float getDamage()
+    {
+       return currentAttack.getDamage();
     }
 }

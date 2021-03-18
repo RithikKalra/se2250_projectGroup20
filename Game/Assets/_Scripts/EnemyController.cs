@@ -37,6 +37,14 @@ public class EnemyController : MonoBehaviour
     {
         this.isTurn = isTurn;
     }
+     void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag.Equals("Sword")){
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            healthSystem.Damage(10);
+        }
+    }
 
     public void Move(Action stateChange)
     {

@@ -8,6 +8,7 @@ TagManager:
   - TutTerry
   - ShopButton
   - ShopMenu
+  - Sword
   layers:
   - Default
   - TransparentFX
