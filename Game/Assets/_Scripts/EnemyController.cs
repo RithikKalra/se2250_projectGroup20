@@ -27,6 +27,13 @@ public class EnemyController : MonoBehaviour
         hb.Setup(healthSystem);
        
     }
+    void Update(){
+        if (healthSystem.GetHealth() <= 0)
+        {
+            marker.Marker.SetActive(false);
+            Destroy(gameObject);
+        }
+    }
 
     public bool GetIsTurn()
     {
@@ -42,7 +49,8 @@ public class EnemyController : MonoBehaviour
         if(other.tag.Equals("Sword")){
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
-            healthSystem.Damage(10);
+            PlayerController player= GameObject.Find("Player").GetComponent<PlayerController>();
+            healthSystem.Damage((int)player.getDamage());
         }
     }
 
