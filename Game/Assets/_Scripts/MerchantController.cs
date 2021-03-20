@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 //This class is used to handle player interactions with the merchant
 //update
+//update
 public class MerchantController : MonoBehaviour
 {
     private BoundsDetector bndDetect;

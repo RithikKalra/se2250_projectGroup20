@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//update
 public class CoinMovement : MonoBehaviour
 {
     public float amplitude = 0.5f;

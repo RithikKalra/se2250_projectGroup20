@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //update
+//update
 public class CameraController : MonoBehaviour
 {
     public GameObject player;

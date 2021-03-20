@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 //update
+//update
 public class GameOverScreen : MonoBehaviour
 {
     public void Setup()
