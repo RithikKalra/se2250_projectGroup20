@@ -38,10 +38,6 @@ public class BoundsDetector : MonoBehaviour
         else
             isProximityMerchant = false;
 
-        if (Vector3.Distance(transform.position, tutTerry.transform.position) < 2)
-            isProximityTutTerry = true;
-        else
-            isProximityTutTerry = false;
         //Do the same with other NPC's and stuff modify the code if its bad lol
     }
 }

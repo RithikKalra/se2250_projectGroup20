@@ -25,8 +25,10 @@ public class TurnController : MonoBehaviour
     void Update()
     {
         player.SetIsTurn(true);
+        if(enemy!=null){
         enemy.SetIsTurn(false);
-        player.Move(() =>
+        }
+        player.pTurn(() =>
         {
             state = State.EnemyTurn;
         });
@@ -35,7 +37,7 @@ public class TurnController : MonoBehaviour
         //PerformTurn();
     }
     void LateUpdate(){
-        if (state == State.EnemyTurn)
+        if (state == State.EnemyTurn && enemy!=null)
         {
             enemy.SetIsTurn(true);
             player.SetIsTurn(false);

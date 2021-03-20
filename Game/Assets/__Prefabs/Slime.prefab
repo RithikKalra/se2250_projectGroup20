@@ -49,6 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   movePoint: {fileID: 1269903284580145921}
+  HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
+    type: 3}
+  Coin: {fileID: 0}
 --- !u!61 &-2110796347633955957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59,7 +62,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -73,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &1398444919761299045
 MonoBehaviour:

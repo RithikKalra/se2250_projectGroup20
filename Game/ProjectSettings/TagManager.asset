@@ -8,10 +8,8 @@ TagManager:
   - TutTerry
   - ShopButton
   - ShopMenu
-  - MerchantPrompt
-  - TalkButton
-  - TutTerryPrompt
-  - QuestMenu
+  - Sword
+  - Coin
   layers:
   - Default
   - TransparentFX
