@@ -41,6 +41,7 @@ public class MerchantController : MonoBehaviour
         }
     }
 
+    //Button methods
     public void OnClickShop()
     {
         mPrompt.gameObject.SetActive(true);
