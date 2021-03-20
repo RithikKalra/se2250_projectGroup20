@@ -9,18 +9,20 @@ public class MerchantController : MonoBehaviour
 {
     private BoundsDetector bndDetect;
     private GameObject shop;
+    private GameObject mPrompt;
     private GameObject sMenu;
   
     void Awake()
     {
         bndDetect = GameObject.Find("Player").GetComponent<BoundsDetector>();
         shop = GameObject.FindWithTag("ShopButton");
+        mPrompt = GameObject.FindWithTag("MerchantPrompt");
         sMenu = GameObject.FindWithTag("ShopMenu");
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        mPrompt.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class MerchantController : MonoBehaviour
         else
         {
             shop.gameObject.SetActive(false);
+            mPrompt.gameObject.SetActive(false);
             sMenu.gameObject.SetActive(false);
         }
     }
@@ -45,6 +48,7 @@ public class MerchantController : MonoBehaviour
     }
     public void OnClickContd()
     {
+        mPrompt.gameObject.SetActive(false);
         sMenu.gameObject.SetActive(true);
     }
 
