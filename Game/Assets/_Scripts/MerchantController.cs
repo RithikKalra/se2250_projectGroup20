@@ -38,7 +38,12 @@ public class MerchantController : MonoBehaviour
         }
     }
 
-    public void onClickShop()
+    //Button methods
+    public void OnClickShop()
+    {
+        mPrompt.gameObject.SetActive(true);
+    }
+    public void OnClickContd()
     {
         sMenu.gameObject.SetActive(true);
     }
