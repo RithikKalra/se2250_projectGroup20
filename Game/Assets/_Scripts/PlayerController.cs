@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 //update
 public class PlayerController : MonoBehaviour
 {
+    private int coinBalance;
+    public TMP_Text coinText;
+
     private Rigidbody2D rb2d;
     public float moveSpeed = 2.0f;
     public Transform movePoint;
@@ -15,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public GameOverScreen GameOverScreen;
 
     private bool isTurn;
+
+    private List<Attack> attackList = new List<Attack>();
+    public Attack currentAttack; 
+    public Stab stab;
 
     void Start()
     {
@@ -29,10 +37,14 @@ public class PlayerController : MonoBehaviour
         healthBarTransform.transform.parent = GameObject.Find("Player").transform;
 
         hb.Setup(healthSystem);
+        currentAttack=stab;
+        attackList.Add(stab);
     }
 
     void Update()
     {
+        coinText.text = "Coins : " + coinBalance.ToString();
+
         if (healthSystem.GetHealth() <= 0)
         {
             GameOver();
@@ -51,12 +63,18 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Transform rootT = other.gameObject.transform.root;
-        GameObject go = rootT.gameObject;
+        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")))
+        {
+            healthSystem.Damage(10);
+        }
 
-        //Debug.Log("Collided");
-
-        healthSystem.Damage(10);
+        if(other.tag.Equals("Coin"))
+        {
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            Destroy(go);
+            coinBalance++;
+        }
     }
 
     public void GameOver()
@@ -64,14 +82,18 @@ public class PlayerController : MonoBehaviour
         GameOverScreen.Setup();
     }
 
-    public void Move(Action stateChange)
+    public void pTurn(Action stateChange)
     {
         bool moveComplete = false;
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
+        CycleAttack();
         if (GetIsTurn())
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) ) {
+                currentAttack.attack();
+                moveComplete = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 movePoint.position += new Vector3(1f, 0f, 0f);
                 moveComplete = true;
@@ -99,5 +121,32 @@ public class PlayerController : MonoBehaviour
 
         }
         
+    }
+    public void CycleAttack()
+    {
+        int index = attackList.IndexOf(currentAttack);
+        Attack[] seekAttack = attackList.ToArray();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(index<seekAttack.Length-1){
+                currentAttack=seekAttack[index+1];
+            }
+            else{
+                currentAttack=seekAttack[0];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(index==0){
+                currentAttack=seekAttack[seekAttack.Length-1];
+            }
+            else{
+                currentAttack=seekAttack[index-1];
+            }
+        }
+    }
+    public float getDamage()
+    {
+       return currentAttack.getDamage();
     }
 }

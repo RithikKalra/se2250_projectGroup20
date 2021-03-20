@@ -6,12 +6,13 @@ public class SlimeMovement : MonoBehaviour
 {
     public GameObject Marker;
     public GameObject parent;
+    private Vector3 TargetLocation;
 
     public void SelectTarget(){
         if(Marker!=null){
             Destroy(Marker);
         }
-        Vector3 TargetLocation;
+    
         System.Random random = new System.Random();
         int randomizer = random.Next(1, 5);
         if (randomizer == 1)
@@ -34,5 +35,8 @@ public class SlimeMovement : MonoBehaviour
             }
         TargetLocation+=parent.transform.position;
         Marker=Instantiate(Marker, TargetLocation, Quaternion.identity);
+   }
+   public Vector3 getTargetLocation(){
+       return TargetLocation;
    }
 }

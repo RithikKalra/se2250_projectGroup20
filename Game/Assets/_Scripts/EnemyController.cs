@@ -9,12 +9,33 @@ public class EnemyController : MonoBehaviour
     public Transform movePoint;
     private bool isTurn;
     private SlimeMovement marker;
+    public Transform HealthBar;
+    private HealthSystem healthSystem;
+    public Transform Coin;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
         marker= GetComponent<SlimeMovement>();
+
+        healthSystem = new HealthSystem(100);
+        Vector3 pos= gameObject.transform.position+new Vector3(-0.5f, 0.5f,0f);
+        Transform healthBarTransform = Instantiate(HealthBar, pos, Quaternion.identity);
+        HealthBar hb = healthBarTransform.GetComponent<HealthBar>();
+        healthBarTransform.transform.parent = gameObject.transform;
+
+        hb.Setup(healthSystem);
+       
+    }
+    void Update(){
+        if (healthSystem.GetHealth() <= 0)
+        {
+            Vector3 pos = gameObject.transform.position;
+            Instantiate(Coin, pos, Quaternion.identity);
+            marker.Marker.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
     public bool GetIsTurn()
@@ -26,43 +47,36 @@ public class EnemyController : MonoBehaviour
     {
         this.isTurn = isTurn;
     }
+     void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag.Equals("Sword")){
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            PlayerController player= GameObject.Find("Player").GetComponent<PlayerController>();
+            healthSystem.Damage((int)player.getDamage());
+        }
+    }
 
     public void Move(Action stateChange)
     {
-        marker.SelectTarget();
+        
         bool moveComplete = false;
-        System.Random random = new System.Random();
-        int randomizer = random.Next(1, 5);
+        
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
         if (Vector3.Distance(transform.position, movePoint.position) == 0f && GetIsTurn())
         {
-            if (randomizer == 1)
-            {
-                movePoint.position += new Vector3(1f, 0f, 0f);
-                moveComplete = true;
-            }
-            else if (randomizer == 2)
-            {
-                movePoint.position += new Vector3(-1f, 0f, 0f);
-                moveComplete = true;
-            }
-            else if (randomizer == 3)
-            {
-                movePoint.position += new Vector3(0f, 1f, 0f);
-                moveComplete = true;
-            }
-            else if (randomizer == 4)
-            {
-                movePoint.position += new Vector3(0f, -1f, 0f);
-                moveComplete = true;
-            }
+            marker.SelectTarget();
+            movePoint.position=marker.getTargetLocation();
+            moveComplete=true;
         }
+
+        
 
         if (moveComplete)
         {
             stateChange();
+            
         }
     }
 }
