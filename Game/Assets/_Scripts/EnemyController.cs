@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private SlimeMovement marker;
     public Transform HealthBar;
     private HealthSystem healthSystem;
+    public Transform Coin;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class EnemyController : MonoBehaviour
     void Update(){
         if (healthSystem.GetHealth() <= 0)
         {
+            Vector3 pos = gameObject.transform.position;
+            Instantiate(Coin, pos, Quaternion.identity);
             marker.Marker.SetActive(false);
             Destroy(gameObject);
         }

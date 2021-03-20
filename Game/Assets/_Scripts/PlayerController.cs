@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 //update
 public class PlayerController : MonoBehaviour
 {
+    private int coinBalance;
+    public TMP_Text coinText;
+
     private Rigidbody2D rb2d;
     public float moveSpeed = 2.0f;
     public Transform movePoint;
@@ -39,6 +43,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        coinText.text = "Coins : " + coinBalance.ToString();
+
         if (healthSystem.GetHealth() <= 0)
         {
             GameOver();
@@ -57,10 +63,17 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!(other.tag.Equals("Sword"))){
+        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")))
+        {
+            healthSystem.Damage(10);
+        }
+
+        if(other.tag.Equals("Coin"))
+        {
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
-            healthSystem.Damage(10);
+            Destroy(go);
+            coinBalance++;
         }
     }
 
