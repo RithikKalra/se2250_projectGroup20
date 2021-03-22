@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : Attack
 {
     public Transform arrow;
-    private float damage = 50;
+    private float damage = 25;
     public GameObject arrowParent;
 
     public override float getDamage()

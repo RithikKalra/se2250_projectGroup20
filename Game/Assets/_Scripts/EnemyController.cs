@@ -50,17 +50,19 @@ public class EnemyController : MonoBehaviour
      void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
         if (other.tag.Equals("Sword")){
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
             healthSystem.Damage((int)player.getDamage());
         }
+
         if (other.tag.Equals("Arrow"))
         {
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
             healthSystem.Damage((int)player.getDamage());
-            other.gameObject.SetActive(false);
+            go.SetActive(false);
         }
     }
 

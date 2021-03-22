@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stab : Attack
 {
     public GameObject Sword;
-    private float damage = 25;
+    private float damage = 15;
     public override float getDamage()
     {
         return damage;
