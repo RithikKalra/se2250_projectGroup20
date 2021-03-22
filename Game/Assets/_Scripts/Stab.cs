@@ -43,15 +43,15 @@ public class Stab : Attack
         }
     }
     IEnumerator Hide()
-  {
-    yield return new WaitForSeconds(1.5f);
-    Sword.SetActive(false);
-  }
+    {
+        yield return new WaitForSeconds(1.5f);
+        Sword.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Sword=Instantiate(Sword, new Vector3(0, 0, 0), Quaternion.identity);
+        Sword = Instantiate(Sword, new Vector3(0, 0, 0), Quaternion.identity);
         Sword.SetActive(false);
     }
 

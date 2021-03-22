@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private List<Attack> attackList = new List<Attack>();
     public Attack currentAttack; 
     public Stab stab;
+    public Shoot shoot;
 
     void Start()
     {
@@ -37,7 +38,9 @@ public class PlayerController : MonoBehaviour
         healthBarTransform.transform.parent = GameObject.Find("Player").transform;
 
         hb.Setup(healthSystem);
-        currentAttack=stab;
+
+        currentAttack = shoot;
+        attackList.Add(shoot);
         attackList.Add(stab);
     }
 
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")))
+        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")) && !(other.tag.Equals("Arrow")))
         {
             healthSystem.Damage(10);
         }
@@ -86,7 +89,9 @@ public class PlayerController : MonoBehaviour
     {
         bool moveComplete = false;
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
         CycleAttack();
+
         if (GetIsTurn())
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) ) {
@@ -122,10 +127,13 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
     public void CycleAttack()
     {
         int index = attackList.IndexOf(currentAttack);
+
         Attack[] seekAttack = attackList.ToArray();
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(index<seekAttack.Length-1){
@@ -145,6 +153,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     public float getDamage()
     {
        return currentAttack.getDamage();

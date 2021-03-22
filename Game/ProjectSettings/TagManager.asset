@@ -10,6 +10,11 @@ TagManager:
   - ShopMenu
   - Sword
   - Coin
+  - TalkButton
+  - TutTerryPrompt
+  - MerchantPrompt
+  - QuestMenu
+  - Arrow
   layers:
   - Default
   - TransparentFX
