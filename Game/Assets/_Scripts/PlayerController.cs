@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     public float moveSpeed = 2.0f;
+    public bool isJumping = false;
+    public bool jumpedLast = false;
+    public float jumpSpeed = 15.0f;
     public Transform movePoint;
 
     public Transform HealthBar;
@@ -27,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public Attack currentAttack; 
     public Stab stab;
     public Shoot shoot;
+
+    public int lastDir = 0;
 
     void Start()
     {
@@ -95,35 +100,78 @@ public class PlayerController : MonoBehaviour
     public void pTurn(Action stateChange)
     {
         bool moveComplete = false;
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        if (!isJumping)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, jumpSpeed * Time.deltaTime);
+        }
 
         CycleAttack();
 
         if (GetIsTurn())
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) ) {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                setIsJumping(true);
+                switch (lastDir)
+                {
+                    case 1:
+                        movePoint.position += new Vector3(3f, 0f, 0f);
+                        break;
+                    case 2:
+                        movePoint.position += new Vector3(-3f, 0f, 0f);
+                        break;
+                    case 3:
+                        movePoint.position += new Vector3(0f, 3f, 0f);
+                        break;
+                    case 4:
+                        movePoint.position += new Vector3(0f, -3f, 0f);
+                        break;
+                    default:
+                        movePoint.position += new Vector3(3f, 0f, 0f);
+                        break;
+                }
+                moveComplete = true;
+                setJumpedLast(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                setIsJumping(false);
                 currentAttack.attack();
                 moveComplete = true;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) 
             {
-                movePoint.position += new Vector3(1f, 0f, 0f);
-                moveComplete = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                movePoint.position += new Vector3(-1f, 0f, 0f);
-                moveComplete = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
-            {
-                movePoint.position += new Vector3(0f, 1f, 0f);
-                moveComplete = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                movePoint.position += new Vector3(0f, -1f, 0f);
-                moveComplete = true;
+                setIsJumping(false);
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    movePoint.position += new Vector3(1f, 0f, 0f);
+                    setLastDir(1);
+                    moveComplete = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    movePoint.position += new Vector3(-1f, 0f, 0f);
+                    setLastDir(2);
+                    moveComplete = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.W))
+                {
+                    movePoint.position += new Vector3(0f, 1f, 0f);
+                    setLastDir(3);
+                    moveComplete = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    movePoint.position += new Vector3(0f, -1f, 0f);
+                    setLastDir(4);
+                    moveComplete = true;
+                }
+                setJumpedLast(false);
             }
         }
 
@@ -163,6 +211,33 @@ public class PlayerController : MonoBehaviour
 
     public float getDamage()
     {
-       return currentAttack.getDamage();
+        if (getJumpedLast())
+        {
+            return currentAttack.getDamage() * 2;
+        }
+        else
+        {
+            return currentAttack.getDamage();
+        }
+    }
+
+    public void setLastDir(int i)
+    {
+        this.lastDir = i;
+    }
+
+    public void setIsJumping(bool j)
+    {
+        this.isJumping = j;
+    }
+
+    public void setJumpedLast(bool move)
+    {
+        this.jumpedLast = move;
+    }
+
+    public bool getJumpedLast()
+    {
+        return jumpedLast;
     }
 }
