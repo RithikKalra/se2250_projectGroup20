@@ -9,6 +9,10 @@ public class SlimeMovement : MonoBehaviour
     private Vector3 TargetLocation;
     private int horizontal = 0;
     private int vertical = 0;
+    public int pHorizontal;
+    public int nHorizontal;
+    public int pVertical;
+    public int nVertical;
 
     public void SelectTarget(){
         if(Marker!=null){
@@ -20,7 +24,7 @@ public class SlimeMovement : MonoBehaviour
         if (randomizer == 1)
             {
                 
-                if (horizontal > 2){
+                if (horizontal > pHorizontal){
                     TargetLocation= new Vector3(-1f, 0f, 0f);
                     horizontal = horizontal -1;
                 } else {
@@ -31,7 +35,7 @@ public class SlimeMovement : MonoBehaviour
             }
         else if (randomizer == 2)
             {
-                if (horizontal < -2){
+                if (horizontal < nHorizontal){
                     TargetLocation= new Vector3(1f, 0f, 0f);
                     horizontal = horizontal +1;
                 } else {
@@ -41,7 +45,7 @@ public class SlimeMovement : MonoBehaviour
             }
         else if (randomizer == 3)
             {
-                if (vertical > 2){
+                if (vertical > pVertical){
                 TargetLocation= new Vector3(0f, -1f, 0f);
                 vertical = vertical -1;
             } else {
@@ -52,7 +56,7 @@ public class SlimeMovement : MonoBehaviour
         
         else //heelo
             {
-                if (vertical < -2){
+                if (vertical < nVertical){
                 TargetLocation= new Vector3(0f, 1f, 0f);
                 vertical = vertical +1;
             } else {

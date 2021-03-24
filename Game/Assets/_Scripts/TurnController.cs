@@ -6,7 +6,7 @@ using System;
 public class TurnController : MonoBehaviour
 {
     public PlayerController player;
-    public EnemyController enemy;
+    public List<EnemyController> enemies;
 
     public State state;
 
@@ -25,8 +25,11 @@ public class TurnController : MonoBehaviour
     void Update()
     {
         player.SetIsTurn(true);
-        if(enemy!=null){
-        enemy.SetIsTurn(false);
+        if(enemies.Count>0){
+            for(int i=0; i<enemies.Count; i++){
+                enemies[i].SetIsTurn(false);
+            }
+        //enemy.SetIsTurn(false);
         }
         player.pTurn(() =>
         {
@@ -37,14 +40,18 @@ public class TurnController : MonoBehaviour
         //PerformTurn();
     }
     void LateUpdate(){
-        if (state == State.EnemyTurn && enemy!=null)
+        if (state == State.EnemyTurn && enemies.Count>0)
         {
-            enemy.SetIsTurn(true);
             player.SetIsTurn(false);
-            enemy.Move(() =>
-            {
-                state = State.PlayerTurn;
-            });
+            for(int i=0; i<enemies.Count; i++){
+                enemies[i].SetIsTurn(true);
+                enemies[i].Move(() =>
+                {
+                    state = State.PlayerTurn;
+                });
+            }
+            
+            
         }
 
     }

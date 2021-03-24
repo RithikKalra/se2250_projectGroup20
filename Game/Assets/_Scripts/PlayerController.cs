@@ -6,6 +6,9 @@ using TMPro;
 //update
 public class PlayerController : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+    public Sprite ninjaSprite;
+
     private int coinBalance;
     public TMP_Text coinText;
 
@@ -46,6 +49,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P)){
+            spriteRenderer.sprite=ninjaSprite;
+        }
+
         coinText.text = "Coins : " + coinBalance.ToString();
 
         if (healthSystem.GetHealth() <= 0)

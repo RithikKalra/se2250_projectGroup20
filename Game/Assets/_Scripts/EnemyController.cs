@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
             Vector3 pos = gameObject.transform.position;
             Instantiate(Coin, pos, Quaternion.identity);
             marker.Marker.SetActive(false);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
