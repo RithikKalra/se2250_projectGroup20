@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite ninjaSprite;
 
-    private int coinBalance;
+    public int coinBalance;
     public TMP_Text coinText;
 
     private Rigidbody2D rb2d;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite=ninjaSprite;
         }
 
-        coinText.text = "Coins : " + coinBalance.ToString();
+        coinText.text = "Money: " + coinBalance.ToString() + " Axils";
 
         if (healthSystem.GetHealth() <= 0)
         {
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
             Destroy(go);
-            coinBalance++;
+            coinBalance += 100;
         }
     }
 

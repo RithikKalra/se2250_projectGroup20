@@ -15,6 +15,7 @@ TagManager:
   - MerchantPrompt
   - QuestMenu
   - Arrow
+  - NoMoney
   layers:
   - Default
   - TransparentFX
