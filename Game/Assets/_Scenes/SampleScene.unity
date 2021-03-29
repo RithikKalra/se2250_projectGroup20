@@ -3379,11 +3379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504c5aea754efd84e8f066c1f2a1c136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimes:
-  - {fileID: 1269903284439775974, guid: d0794f0de96046849b053a89b084ae0c, type: 3}
-  - {fileID: 1269903284439775974, guid: d0794f0de96046849b053a89b084ae0c, type: 3}
-  - {fileID: 1269903284439775974, guid: d0794f0de96046849b053a89b084ae0c, type: 3}
-  enemySpawnPerSecond: 0.5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4050,7 +4045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000071525574, y: 0.0000143353045}
+  m_AnchoredPosition: {x: 0.0000071525574, y: 0.000005485243}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &794327802
@@ -4941,7 +4936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.0000143353045}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000036002606}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1004216499
@@ -13300,7 +13295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.0000143353045}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000036002606}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1445137489
