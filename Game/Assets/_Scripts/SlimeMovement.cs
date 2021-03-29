@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeMovement : MonoBehaviour
+public class SlimeMovement : EnemyMovement
 {
-    public GameObject Marker;
     public GameObject parent;
     private Vector3 TargetLocation;
     private int horizontal = 0;
@@ -14,9 +13,15 @@ public class SlimeMovement : MonoBehaviour
     public int pVertical;
     public int nVertical;
 
-    public void SelectTarget(){
+    void Start(){
+        Marker=Instantiate(Marker, TargetLocation, Quaternion.identity);
+        Marker.SetActive(false);
+    }
+
+    public override void SelectTarget(){
         if(Marker!=null){
-            Destroy(Marker);
+            Marker.SetActive(false);
+            //Destroy(Marker);
         }
     
         System.Random random = new System.Random();
@@ -65,9 +70,11 @@ public class SlimeMovement : MonoBehaviour
             }
             }
         TargetLocation+=parent.transform.position;
-        Marker=Instantiate(Marker, TargetLocation, Quaternion.identity);
+        Marker.transform.position=TargetLocation;
+        Marker.SetActive(true);
+        //Marker=Instantiate(Marker, TargetLocation, Quaternion.identity);
    }
-   public Vector3 getTargetLocation(){
+   public override Vector3 getTargetLocation(){
        return TargetLocation;
    }
 }

@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 2.0f;
     public Transform movePoint;
     private bool isTurn;
-    private SlimeMovement marker;
+    private EnemyMovement marker;
     public Transform HealthBar;
     private HealthSystem healthSystem;
     public Transform Coin;
@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-        marker= GetComponent<SlimeMovement>();
+        marker= GetComponent<EnemyMovement>();
 
         healthSystem = new HealthSystem(100);
         Vector3 pos= gameObject.transform.position+new Vector3(-0.5f, 0.5f,0f);
@@ -33,7 +33,8 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 pos = gameObject.transform.position;
             Instantiate(Coin, pos, Quaternion.identity);
-            marker.Marker.SetActive(false);
+            //marker.Marker.SetActive(false);
+            Destroy(marker.Marker);
             gameObject.SetActive(false);
         }
     }
