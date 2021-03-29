@@ -92,6 +92,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Marker: {fileID: 1252044348149266806, guid: 6266842656a964d13801e3c530ed2138, type: 3}
   parent: {fileID: 1269903284439775974}
+  pHorizontal: 0
+  nHorizontal: 0
+  pVertical: 0
+  nVertical: 0
 --- !u!1 &1269903284580145920
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3cb1b206b2e2da84d9057339b427c3f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f862fd923e7faf4f80de8b062c1c0e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
