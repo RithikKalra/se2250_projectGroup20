@@ -4596,7 +4596,7 @@ GameObject:
   - component: {fileID: 948730554}
   - component: {fileID: 948730553}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WeaponUpgradeImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4873,7 +4873,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 391666121}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.98140836
+  m_Size: 0.88609916
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4949,7 +4949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.00044819008}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.104315124}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1004216499
@@ -5010,6 +5010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1004216502}
   ninjaSprite: {fileID: 21300000, guid: d6a3f500c7b5d4124a2fccb6d780f754, type: 3}
+  knightSprite: {fileID: 21300000, guid: bfe240e17922ae843a5cbe9a85831c97, type: 3}
+  wizardSprite: {fileID: 21300000, guid: f062d0cd8015b45a6ad9341c0ae53bee, type: 3}
   coinBalance: 0
   coinText: {fileID: 1705100554}
   moveSpeed: 5
@@ -5019,7 +5021,7 @@ MonoBehaviour:
   movePoint: {fileID: 627095878}
   HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
     type: 3}
-  GameOverScreen: {fileID: 872936589}
+  GameOverScreen: {fileID: 0}
   currentAttack: {fileID: 0}
   stab: {fileID: 1004216506}
   shoot: {fileID: 1004216507}
@@ -5450,7 +5452,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 183997054}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.98140836
+  m_Size: 0.88609916
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13041,6 +13043,11 @@ MonoBehaviour:
   player: {fileID: 1004216501}
   swordUpgrade: {fileID: 1226562646}
   swordUpgradePrice: {fileID: 516624410}
+  skillImg1: {fileID: 1724368562}
+  skillImg2: {fileID: 702142689}
+  weaponupgradeImg: {fileID: 948730553}
+  ninjaScroll: {fileID: 21300000, guid: d8f14f2c7a0088b4eae84e9b69f44b38, type: 3}
+  ninjaWeaponUpgrade: {fileID: 21300000, guid: 245d8c921cca8ff488dc932af95912e5, type: 3}
 --- !u!212 &1381795295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13308,7 +13315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.00044819008}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.104315124}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1445137489

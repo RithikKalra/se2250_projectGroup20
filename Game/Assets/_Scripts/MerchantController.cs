@@ -20,7 +20,14 @@ public class MerchantController : MonoBehaviour
     private GameObject sMenu;
     private GameObject noMoneyButton;
 
-  
+    public Image skillImg1;
+    public Image skillImg2;
+    public Image weaponupgradeImg;
+
+    public Sprite ninjaScroll;
+    public Sprite ninjaWeaponUpgrade;
+
+
     void Awake()
     {
         bndDetect = GameObject.Find("Player").GetComponent<BoundsDetector>();
@@ -33,6 +40,13 @@ public class MerchantController : MonoBehaviour
     void Start()
     {
         mPrompt.gameObject.SetActive(false);
+
+        if(GameLoader.playerType == 2)
+        {
+            skillImg1.sprite = ninjaScroll;
+            skillImg2.sprite = ninjaScroll;
+            weaponupgradeImg.sprite = ninjaWeaponUpgrade;
+        }
     }
 
     // Update is called once per frame

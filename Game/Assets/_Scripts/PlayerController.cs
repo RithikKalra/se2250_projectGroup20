@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public Sprite ninjaSprite;
+    public Sprite knightSprite;
+    public Sprite wizardSprite;
 
     public int coinBalance;
     public TMP_Text coinText;
@@ -50,14 +52,26 @@ public class PlayerController : MonoBehaviour
         currentAttack = shoot;
         attackList.Add(shoot);
         attackList.Add(stab);
+    
+        if (GameLoader.playerType == 1)
+        { 
+            spriteRenderer.sprite = knightSprite;
+            //Add code unique to the knight
+        }
+        else if(GameLoader.playerType == 2)
+        {
+            spriteRenderer.sprite = ninjaSprite;
+            //Add code unique to the ninja
+        }
+        else
+        {
+            spriteRenderer.sprite = wizardSprite;
+            //Add code unique to the wizard
+        } 
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)){
-            spriteRenderer.sprite=ninjaSprite;
-        }
-
         coinText.text = "Money: " + coinBalance.ToString() + " Axils";
 
         if (healthSystem.GetHealth() <= 0)

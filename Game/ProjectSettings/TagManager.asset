@@ -16,6 +16,7 @@ TagManager:
   - QuestMenu
   - Arrow
   - NoMoney
+  - Loader
   layers:
   - Default
   - TransparentFX
