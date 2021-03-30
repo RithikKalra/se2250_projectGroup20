@@ -4873,7 +4873,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 391666121}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.88609916
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4949,7 +4949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.104315124}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000014946432}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1004216499
@@ -4968,6 +4968,7 @@ GameObject:
   - component: {fileID: 1004216507}
   - component: {fileID: 1004216504}
   - component: {fileID: 1004216500}
+  - component: {fileID: 1004216508}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5025,6 +5026,7 @@ MonoBehaviour:
   currentAttack: {fileID: 0}
   stab: {fileID: 1004216506}
   shoot: {fileID: 1004216507}
+  slash: {fileID: 1004216508}
   lastDir: 0
 --- !u!212 &1004216502
 SpriteRenderer:
@@ -5159,6 +5161,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 7371731801743149092, guid: a376cc5332488444293de82ef38f5466, type: 3}
   arrowParent: {fileID: 1463858856}
+--- !u!114 &1004216508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004216499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2310d82ea34453fadbf4340e4b4c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
+  cSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
+  lSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
 --- !u!1 &1008915214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,7 +5469,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 183997054}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.88609916
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13315,7 +13332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.104315124}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000014946432}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1445137489

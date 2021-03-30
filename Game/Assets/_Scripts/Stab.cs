@@ -54,10 +54,4 @@ public class Stab : Attack
         Sword = Instantiate(Sword, new Vector3(0, 0, 0), Quaternion.identity);
         Sword.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

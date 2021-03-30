@@ -21,7 +21,6 @@ public class SlimeMovement : EnemyMovement
     public override void SelectTarget(){
         if(Marker!=null){
             Marker.SetActive(false);
-            //Destroy(Marker);
         }
     
         System.Random random = new System.Random();

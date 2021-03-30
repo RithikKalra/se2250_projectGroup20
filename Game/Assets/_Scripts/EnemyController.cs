@@ -33,7 +33,6 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 pos = gameObject.transform.position;
             Instantiate(Coin, pos, Quaternion.identity);
-            //marker.Marker.SetActive(false);
             Destroy(marker.Marker);
             gameObject.SetActive(false);
         }
@@ -74,7 +73,7 @@ public class EnemyController : MonoBehaviour
         
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, movePoint.position) == 0f && GetIsTurn())
+        if ((Vector3.Distance(transform.position, movePoint.position) == 0f && GetIsTurn())&& (marker.Marker!=null))
         {
             marker.SelectTarget();
             movePoint.position=marker.getTargetLocation();
