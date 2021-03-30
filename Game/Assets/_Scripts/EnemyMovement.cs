@@ -6,5 +6,6 @@ public abstract class EnemyMovement : MonoBehaviour
 {
     public GameObject Marker;
     public abstract void SelectTarget();
-   public abstract Vector3 getTargetLocation();
+    public abstract Vector3 getTargetLocation();
+    public abstract bool getIsBoss();
 }

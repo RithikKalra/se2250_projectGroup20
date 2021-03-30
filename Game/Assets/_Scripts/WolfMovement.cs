@@ -12,6 +12,7 @@ public class WolfMovement : EnemyMovement
     public int nHorizontal;
     public int pVertical;
     public int nVertical;
+    public bool isBoss;
 
     void Start(){
         Marker=Instantiate(Marker, TargetLocation, Quaternion.identity);
@@ -77,4 +78,8 @@ public class WolfMovement : EnemyMovement
    public override Vector3 getTargetLocation(){
        return TargetLocation;
    }
+    public override bool getIsBoss()
+    {
+        return isBoss;
+    }
 }

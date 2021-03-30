@@ -12,15 +12,26 @@ public class EnemyController : MonoBehaviour
     public Transform HealthBar;
     private HealthSystem healthSystem;
     public Transform Coin;
+    public bool isBoss;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-        marker= GetComponent<EnemyMovement>();
+        marker = GetComponent<EnemyMovement>();
 
-        healthSystem = new HealthSystem(100);
-        Vector3 pos= gameObject.transform.position+new Vector3(-0.5f, 0.5f,0f);
+        Vector3 pos;
+        if (isBoss)
+        {
+            healthSystem = new HealthSystem(200);
+            pos = gameObject.transform.position + new Vector3(-0.5f, 1f, 0f);
+        }
+        else
+        {
+            healthSystem = new HealthSystem(100);
+            pos = gameObject.transform.position + new Vector3(-0.5f, 0.5f, 0f);
+        }
+
         Transform healthBarTransform = Instantiate(HealthBar, pos, Quaternion.identity);
         HealthBar hb = healthBarTransform.GetComponent<HealthBar>();
         healthBarTransform.transform.parent = gameObject.transform;
@@ -47,7 +58,8 @@ public class EnemyController : MonoBehaviour
     {
         this.isTurn = isTurn;
     }
-     void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
@@ -68,24 +80,25 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Action stateChange)
     {
-        
+
         bool moveComplete = false;
-        
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-        if ((Vector3.Distance(transform.position, movePoint.position) == 0f && GetIsTurn())&& (marker.Marker!=null))
-        {
-            marker.SelectTarget();
-            movePoint.position=marker.getTargetLocation();
-            moveComplete=true;
-        }
 
-        
+        if ((Vector3.Distance(transform.position, movePoint.position) == 0f && GetIsTurn()) && (marker.Marker != null))
+        {
+            if (marker.getIsBoss())
+            {
+                moveSpeed = 4f;
+            }
+            marker.SelectTarget();
+            movePoint.position = marker.getTargetLocation();
+            moveComplete = true;
+        }
 
         if (moveComplete)
         {
             stateChange();
-            
         }
     }
 }
