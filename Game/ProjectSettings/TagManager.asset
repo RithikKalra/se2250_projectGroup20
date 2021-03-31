@@ -19,6 +19,8 @@ TagManager:
   - Loader
   - BossSlime
   - CrystalDrop
+  - Slime
+  - Wolf
   layers:
   - Default
   - TransparentFX

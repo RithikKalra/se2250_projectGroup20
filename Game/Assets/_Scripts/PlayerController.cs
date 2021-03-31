@@ -6,7 +6,7 @@ using System;
 using TMPro;
 //update
 public class PlayerController : MonoBehaviour
-{
+{ 
     public SpriteRenderer spriteRenderer;
     public Sprite ninjaSprite;
     public Sprite knightSprite;
@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = wizardSprite;
             //Add code unique to the wizard
         } 
+
     }
 
     void Update()
@@ -86,11 +87,6 @@ public class PlayerController : MonoBehaviour
         if (healthSystem.GetHealth() <= 0)
         {
             GameOver();
-        }
-
-        if (hasCrystal)
-        {
-
         }
     }
 
@@ -106,19 +102,20 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")) && !(other.tag.Equals("Arrow")) && !(other.tag.Equals("CrystalDrop")))
-        {
-            if (other.tag.Equals("BossSlime"))
-            {
-                healthSystem.Damage(50);
-            }
-            else
-            {
-                healthSystem.Damage(20);
-            }   
-        }
 
-        if(other.tag.Equals("Coin"))
+        if(other.tag.Equals("Slime"))
+        {         
+            healthSystem.Damage(10);
+        }
+        if (other.tag.Equals("BossSlime"))
+        {
+            healthSystem.Damage(50);
+        }
+        if (other.tag.Equals("TutTerry") && TutTerryController.isEnemy || other.tag.Equals("Wolf"))
+        {
+            healthSystem.Damage(20);
+        }
+        if (other.tag.Equals("Coin"))
         {
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
