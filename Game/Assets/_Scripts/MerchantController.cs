@@ -11,7 +11,7 @@ public class MerchantController : MonoBehaviour
 
     public PlayerController player;
 
-    public GameObject swordUpgrade;
+    public GameObject upgrade;
     public TMP_Text swordUpgradePrice;
 
     private BoundsDetector bndDetect;
@@ -20,10 +20,16 @@ public class MerchantController : MonoBehaviour
     private GameObject sMenu;
     private GameObject noMoneyButton;
 
+    private bool keyBought = false;
+
     public Image skillImg1;
     public Image skillImg2;
     public Image weaponupgradeImg;
+    public Image upgradeDisplay;
 
+    public Sprite swordScroll;
+    public Sprite swordUpgrade;
+    public Sprite dimentionalKey;
     public Sprite ninjaScroll;
     public Sprite ninjaWeaponUpgrade;
 
@@ -63,7 +69,7 @@ public class MerchantController : MonoBehaviour
             mPrompt.gameObject.SetActive(false);
             sMenu.gameObject.SetActive(false);
             noMoneyButton.gameObject.SetActive(false);
-            swordUpgrade.gameObject.SetActive(false);
+            upgrade.gameObject.SetActive(false);
         }
     }
 
@@ -95,7 +101,15 @@ public class MerchantController : MonoBehaviour
         {
             player.coinBalance -= 200;
             swordUpgradePrice.text = "Price: 300 Axils";
-            swordUpgrade.gameObject.SetActive(true);
+
+            if(GameLoader.playerType == 1)
+                upgradeDisplay.sprite = swordUpgrade;
+            else if(GameLoader.playerType == 2)
+                upgradeDisplay.sprite = ninjaWeaponUpgrade;
+            else
+                upgradeDisplay.sprite = swordUpgrade;
+
+            upgrade.gameObject.SetActive(true);
             Invoke("clearAllUpgrades", 2);
         }
         else
@@ -109,6 +123,16 @@ public class MerchantController : MonoBehaviour
         if (player.coinBalance >= 500)
         {
             player.coinBalance -= 500;
+
+            if (GameLoader.playerType == 1)
+                upgradeDisplay.sprite = swordScroll;
+            else if (GameLoader.playerType == 2)
+                upgradeDisplay.sprite = ninjaScroll;
+            else
+                upgradeDisplay.sprite = swordScroll;
+
+            upgrade.gameObject.SetActive(true);
+            Invoke("clearAllUpgrades", 2);
         }
         else
         {
@@ -121,16 +145,46 @@ public class MerchantController : MonoBehaviour
         if (player.coinBalance >= 1500)
         {
             player.coinBalance -= 1500;
+
+            if (GameLoader.playerType == 1)
+                upgradeDisplay.sprite = swordScroll;
+            else if (GameLoader.playerType == 2)
+                upgradeDisplay.sprite = ninjaScroll;
+            else
+                upgradeDisplay.sprite = swordScroll;
+
+            upgrade.gameObject.SetActive(true);
+            Invoke("clearAllUpgrades", 2);
         }
         else
         {
             noMoneyButton.gameObject.SetActive(true);
         }
     }
+    public void OnClickDimentionalKey()
+    {
+        if(player.coinBalance >= 800 && !keyBought)
+        {
+            player.coinBalance -= 800;
+            player.hasCrystal = false;
+            player.hasKey = true;
+            player.itemHolder.sprite = player.key;
 
+            upgradeDisplay.sprite = dimentionalKey;
+            upgrade.gameObject.SetActive(true);
+            Invoke("clearAllUpgrades", 2);
+        }
+        else if(keyBought){
+            print("You cannot but a second key");
+        }
+        else
+        {
+            noMoneyButton.gameObject.SetActive(true);
+        }
+    }
     public void clearAllUpgrades()
     {
-        swordUpgrade.gameObject.SetActive(false);
+        upgrade.gameObject.SetActive(false);
     }
 
 

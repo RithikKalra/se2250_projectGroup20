@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public Transform HealthBar;
     private HealthSystem healthSystem;
     public Transform Coin;
+    public Transform crystal;
     public bool isBoss;
 
     void Start()
@@ -43,7 +44,20 @@ public class EnemyController : MonoBehaviour
         if (healthSystem.GetHealth() <= 0)
         {
             Vector3 pos = gameObject.transform.position;
-            Instantiate(Coin, pos, Quaternion.identity);
+
+            if (isBoss)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    Instantiate(Coin, pos, Quaternion.identity);
+                }
+
+                Instantiate(crystal, new Vector3(-24.8f, -9.5f, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(Coin, pos, Quaternion.identity);
+            }
             Destroy(marker.Marker);
             gameObject.SetActive(false);
         }

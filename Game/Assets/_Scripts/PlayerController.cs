@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using TMPro;
 //update
@@ -27,6 +28,12 @@ public class PlayerController : MonoBehaviour
     public GameOverScreen GameOverScreen;
 
     private bool isTurn;
+
+    public bool hasCrystal = false;
+    public bool hasKey = false;
+    public Sprite crystal;
+    public Sprite key;
+    public Image itemHolder;
 
     private List<Attack> attackList = new List<Attack>();
     public Attack currentAttack; 
@@ -80,6 +87,11 @@ public class PlayerController : MonoBehaviour
         {
             GameOver();
         }
+
+        if (hasCrystal)
+        {
+
+        }
     }
 
     public bool GetIsTurn()
@@ -94,9 +106,16 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")) && !(other.tag.Equals("Arrow")))
+        if(!(other.tag.Equals("Sword")) && !(other.tag.Equals("Coin")) && !(other.tag.Equals("Arrow")) && !(other.tag.Equals("CrystalDrop")))
         {
-            healthSystem.Damage(10);
+            if (other.tag.Equals("BossSlime"))
+            {
+                healthSystem.Damage(50);
+            }
+            else
+            {
+                healthSystem.Damage(20);
+            }   
         }
 
         if(other.tag.Equals("Coin"))
@@ -105,6 +124,14 @@ public class PlayerController : MonoBehaviour
             GameObject go = rootT.gameObject;
             Destroy(go);
             coinBalance += 100;
+        }
+        if (other.tag.Equals("CrystalDrop"))
+        {
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            Destroy(go);
+            hasCrystal = true;
+            itemHolder.sprite = crystal;
         }
     }
 
