@@ -4127,6 +4127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1269903284439775974, guid: d0794f0de96046849b053a89b084ae0c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Slime
+      objectReference: {fileID: 0}
     - target: {fileID: 1398444919761299045, guid: d0794f0de96046849b053a89b084ae0c,
         type: 3}
       propertyPath: nVertical
@@ -4162,7 +4167,7 @@ GameObject:
   - component: {fileID: 872936590}
   - component: {fileID: 872936589}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Game Over Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4814,7 +4819,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 391666121}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99794996
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4890,7 +4895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.000012929114}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000023244733}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1004216499
@@ -4963,7 +4968,7 @@ MonoBehaviour:
   movePoint: {fileID: 627095878}
   HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
     type: 3}
-  GameOverScreen: {fileID: 0}
+  GameOverScreen: {fileID: 872936589}
   hasCrystal: 0
   hasKey: 0
   crystal: {fileID: 21300000, guid: a05f0d13fc0885b43975820e587ccb09, type: 3}
@@ -5415,7 +5420,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 183997054}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99794996
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13490,6 +13495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 1269903284439775974, guid: d0794f0de96046849b053a89b084ae0c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Slime
+      objectReference: {fileID: 0}
     - target: {fileID: 1269903284439775975, guid: d0794f0de96046849b053a89b084ae0c,
         type: 3}
       propertyPath: Coin
@@ -14392,7 +14402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: 0.000012929114}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000023244733}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1445137489
@@ -45586,6 +45596,11 @@ PrefabInstance:
     - target: {fileID: 6242711561577071017, guid: fa90358737768d04bab75cc3dc81fd08,
         type: 3}
       propertyPath: m_Name
+      value: Wolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242711561577071017, guid: fa90358737768d04bab75cc3dc81fd08,
+        type: 3}
+      propertyPath: m_TagString
       value: Wolf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
