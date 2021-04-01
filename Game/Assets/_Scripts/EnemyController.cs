@@ -9,10 +9,20 @@ public class EnemyController : MonoBehaviour
     public Transform movePoint;
     private bool isTurn;
     private EnemyMovement marker;
+
     public Transform HealthBar;
     private HealthSystem healthSystem;
+
+    public EnemyController enemy;
+    public EnemyController slimeEnemy;
+    public SlimeMovement slimeMovement;
     public Transform Coin;
     public Transform crystal;
+
+    public TurnController turnController;
+
+    public GameObject Marker;
+
     public bool isBoss;
 
     void Start()
@@ -24,7 +34,7 @@ public class EnemyController : MonoBehaviour
         Vector3 pos;
         if (isBoss)
         {
-            healthSystem = new HealthSystem(200);
+            healthSystem = new HealthSystem(50);
             pos = gameObject.transform.position + new Vector3(-0.5f, 1f, 0f);
         }
         else
@@ -40,10 +50,17 @@ public class EnemyController : MonoBehaviour
         hb.Setup(healthSystem);
        
     }
-    void Update(){
+
+    void Update()
+    {
         if (healthSystem.GetHealth() <= 0)
         {
             Vector3 pos = gameObject.transform.position;
+
+            float x = gameObject.transform.position.x;
+            float y = gameObject.transform.position.y;
+
+            Vector3 slimeLocation = new Vector3(x, y, 0);
 
             if (isBoss)
             {
@@ -52,12 +69,31 @@ public class EnemyController : MonoBehaviour
                     Instantiate(Coin, pos, Quaternion.identity);
                 }
 
+                slimeLocation = new Vector3(x, y, 0);
+                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
+                turnController.Add(slimeEnemy);
+
+                slimeLocation = new Vector3(x-1, y, 0);
+                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
+                turnController.Add(slimeEnemy);
+
+                slimeLocation = new Vector3(x-1, y-1, 0);
+                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
+                turnController.Add(slimeEnemy);
+
+                slimeLocation = new Vector3(x, y-1, 0);
+                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
+                turnController.Add(slimeEnemy);
+
+                turnController.Remove(turnController.GetElement(3));
+
                 Instantiate(crystal, new Vector3(-24.8f, -9.5f, 0), Quaternion.identity);
             }
             else
             {
                 Instantiate(Coin, pos, Quaternion.identity);
             }
+
             Destroy(marker.Marker);
             gameObject.SetActive(false);
         }
@@ -94,7 +130,6 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Action stateChange)
     {
-
         bool moveComplete = false;
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);

@@ -94,6 +94,7 @@ public class SlimeMovement : EnemyMovement
 
         TargetLocation += parent.transform.position;
         Marker.transform.position = TargetLocation;
+
         Marker.SetActive(true);
     }
 

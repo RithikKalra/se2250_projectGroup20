@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1398444919761299045}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,12 @@ MonoBehaviour:
   movePoint: {fileID: 1269903284580145921}
   HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
     type: 3}
+  slimeEnemy: {fileID: 1269903284439775975}
+  slimeMovement: {fileID: 1398444919761299045}
   Coin: {fileID: 3673740767574145857, guid: 0e8a73a263878aa4b854bf5b2243dab4, type: 3}
+  crystal: {fileID: 0}
+  turnController: {fileID: 0}
+  isBoss: 0
 --- !u!61 &-2110796347633955957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,6 +101,7 @@ MonoBehaviour:
   nHorizontal: 0
   pVertical: 0
   nVertical: 0
+  isBoss: 0
 --- !u!1 &1269903284580145920
 GameObject:
   m_ObjectHideFlags: 0
