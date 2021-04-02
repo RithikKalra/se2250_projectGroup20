@@ -21,6 +21,7 @@ TagManager:
   - CrystalDrop
   - Slime
   - Wolf
+  - CaveEntrance
   layers:
   - Default
   - TransparentFX

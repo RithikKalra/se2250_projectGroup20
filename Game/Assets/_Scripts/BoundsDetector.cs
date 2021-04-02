@@ -11,12 +11,16 @@ public class BoundsDetector : MonoBehaviour
     public bool isProximityMerchant = false;
 
     private GameObject tutTerry;
-    public bool isProximityTutTerry = false; //Yo colin wanna use this to detect terry so we just need one script for the main player
+    public bool isProximityTutTerry = false;
+
+    private GameObject caveEntrance;
+    public bool isProximityCave = false;
 
     void Awake()
     {
         merchant = GameObject.FindWithTag("ShopKeep");
         tutTerry = GameObject.FindWithTag("TutTerry");
+        caveEntrance = GameObject.FindWithTag("CaveEntrance");
     }
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,10 @@ public class BoundsDetector : MonoBehaviour
             isProximityTutTerry = true;
         else
             isProximityTutTerry = false;
-        //Do the same with other NPC's and stuff modify the code if its bad lol
+
+        if (Vector3.Distance(transform.position, caveEntrance.transform.position) < 2)
+            isProximityCave = true;
+        else
+            isProximityCave = false;
     }
 }
