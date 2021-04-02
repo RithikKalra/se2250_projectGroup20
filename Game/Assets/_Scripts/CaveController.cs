@@ -56,6 +56,10 @@ public class CaveController : MonoBehaviour
     {
         SceneManager.LoadScene("Level2_Cave");
     }
+    public void OnClickExit()
+    {
+        yeskeyText.gameObject.SetActive(false);
+    }
 
 
 }

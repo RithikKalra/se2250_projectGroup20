@@ -163,7 +163,7 @@ public class MerchantController : MonoBehaviour
     }
     public void OnClickDimentionalKey()
     {
-        if(player.coinBalance >= 800 && !keyBought)
+        if(player.coinBalance >= 800 && !keyBought && player.hasCrystal)
         {
             player.coinBalance -= 800;
             player.hasCrystal = false;
@@ -175,7 +175,11 @@ public class MerchantController : MonoBehaviour
             Invoke("clearAllUpgrades", 2);
         }
         else if(keyBought){
-            print("You cannot but a second key");
+            print("You cannot but a second key!");
+        }
+        else if (!player.hasCrystal)
+        {
+            print("You do not posses the materials required!");
         }
         else
         {
