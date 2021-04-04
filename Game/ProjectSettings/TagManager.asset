@@ -22,6 +22,7 @@ TagManager:
   - Slime
   - Wolf
   - CaveEntrance
+  - Bomb
   layers:
   - Default
   - TransparentFX

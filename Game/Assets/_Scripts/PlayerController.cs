@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         {         
             healthSystem.Damage(10);
         }
-        if (other.tag.Equals("BossSlime"))
+        if (other.tag.Equals("BossSlime")||other.tag.Equals("Bomb"))
         {
             healthSystem.Damage(50);
         }

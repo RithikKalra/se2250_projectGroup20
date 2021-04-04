@@ -101,6 +101,7 @@ MonoBehaviour:
   movePoint: {fileID: 4020408297799225382}
   HealthBar: {fileID: 6296263993947667578, guid: 808a1ed47e3a8f348adc13d4a333cd68,
     type: 3}
+  enemy: {fileID: 0}
   slimeEnemy: {fileID: 0}
   slimeMovement: {fileID: 0}
   Coin: {fileID: 3673740767574145857, guid: 0e8a73a263878aa4b854bf5b2243dab4, type: 3}
@@ -132,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47, y: 0.38}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!1 &6658116096968700042
 GameObject:
