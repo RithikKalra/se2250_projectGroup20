@@ -32,6 +32,8 @@ public class MerchantController : MonoBehaviour
     public Sprite dimentionalKey;
     public Sprite ninjaScroll;
     public Sprite ninjaWeaponUpgrade;
+    public Sprite wizardScroll;
+    public Sprite wizardWeaponUpgrade;
     public Sprite drinkPotion;
 
     void Awake()
@@ -52,6 +54,12 @@ public class MerchantController : MonoBehaviour
             skillImg1.sprite = ninjaScroll;
             skillImg2.sprite = ninjaScroll;
             weaponupgradeImg.sprite = ninjaWeaponUpgrade;
+        }
+        if(GameLoader.playerType == 3)
+        {
+            skillImg1.sprite = wizardScroll;
+            skillImg2.sprite = wizardScroll;
+            weaponupgradeImg.sprite = wizardWeaponUpgrade;
         }
     }
 
@@ -107,7 +115,7 @@ public class MerchantController : MonoBehaviour
             else if(GameLoader.playerType == 2)
                 upgradeDisplay.sprite = ninjaWeaponUpgrade;
             else
-                upgradeDisplay.sprite = swordUpgrade;
+                upgradeDisplay.sprite = wizardWeaponUpgrade;
 
             upgrade.gameObject.SetActive(true);
             Invoke("clearAllUpgrades", 2);
@@ -129,7 +137,7 @@ public class MerchantController : MonoBehaviour
             else if (GameLoader.playerType == 2)
                 upgradeDisplay.sprite = ninjaScroll;
             else
-                upgradeDisplay.sprite = swordScroll;
+                upgradeDisplay.sprite = wizardScroll;
 
             upgrade.gameObject.SetActive(true);
             Invoke("clearAllUpgrades", 2);
@@ -151,7 +159,7 @@ public class MerchantController : MonoBehaviour
             else if (GameLoader.playerType == 2)
                 upgradeDisplay.sprite = ninjaScroll;
             else
-                upgradeDisplay.sprite = swordScroll;
+                upgradeDisplay.sprite = wizardScroll;
 
             upgrade.gameObject.SetActive(true);
             Invoke("clearAllUpgrades", 2);

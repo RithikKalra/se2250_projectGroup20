@@ -105134,6 +105134,9 @@ MonoBehaviour:
   dimentionalKey: {fileID: 21300000, guid: 61732d2dc8c6b9b48877f57e636e12d9, type: 3}
   ninjaScroll: {fileID: 21300000, guid: d8f14f2c7a0088b4eae84e9b69f44b38, type: 3}
   ninjaWeaponUpgrade: {fileID: 21300000, guid: 245d8c921cca8ff488dc932af95912e5, type: 3}
+  wizardScroll: {fileID: 21300000, guid: e432ef6731fd6ee4ea02279e0415926a, type: 3}
+  wizardWeaponUpgrade: {fileID: 21300000, guid: 417aa766ff07dfd4a91fa2df566ee5f1,
+    type: 3}
   drinkPotion: {fileID: 21300000, guid: eda70cd33a795c4469b89b151c514007, type: 3}
 --- !u!212 &1381795295
 SpriteRenderer:
