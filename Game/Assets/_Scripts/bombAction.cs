@@ -26,25 +26,6 @@ public class bombAction : MonoBehaviour
                     default:
                         break;
                 }
-
-         /*switch (direction)
-                {
-                    case 1:
-                        gameObject.transform.position= Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position+new Vector3(5,0,0), 3 * Time.deltaTime);
-                        break;
-                    case 2:
-                        gameObject.transform.position= Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position+new Vector3(0,5,0), 3 * Time.deltaTime);
-                        break;
-                    case 3:
-                        gameObject.transform.position= Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position+new Vector3(-5,0,0), 3 * Time.deltaTime);
-                        break;
-                    case 4:
-                        gameObject.transform.position= Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position+new Vector3(0,-5,0), 3 * Time.deltaTime);
-                        break;
-                    default:
-                        break;
-                }
-                */
         
     }
     public void setUp(int dir, Vector3 spawnPoint, Transform start){

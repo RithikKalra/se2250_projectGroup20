@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour
     {
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        if (other.tag.Equals("Sword")){
+        if (other.tag.Equals("Sword")||other.tag.Equals("FireBall")){
             Transform rootT = other.gameObject.transform.root;
             GameObject go = rootT.gameObject;
             healthSystem.Damage((int)player.getDamage());

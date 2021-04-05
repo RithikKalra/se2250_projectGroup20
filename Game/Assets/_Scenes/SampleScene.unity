@@ -5431,6 +5431,7 @@ GameObject:
   - component: {fileID: 1004216504}
   - component: {fileID: 1004216500}
   - component: {fileID: 1004216508}
+  - component: {fileID: 1004216509}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5494,6 +5495,7 @@ MonoBehaviour:
   stab: {fileID: 1004216506}
   shoot: {fileID: 1004216507}
   slash: {fileID: 1004216508}
+  fireBall: {fileID: 1004216509}
   lastDir: 0
 --- !u!212 &1004216502
 SpriteRenderer:
@@ -5644,6 +5646,19 @@ MonoBehaviour:
   rSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
   cSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
   lSword: {fileID: 2548345670522583017, guid: 62bd475294da849108f953fbb674e7ea, type: 3}
+--- !u!114 &1004216509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004216499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1219a511551954e4a93d516d438c8026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 4514416409301864023, guid: 05ef060b295f34b74ac3d5caeb4e326b, type: 3}
 --- !u!1 &1008915214
 GameObject:
   m_ObjectHideFlags: 0

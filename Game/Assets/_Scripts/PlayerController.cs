@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     public Stab stab;
     public Shoot shoot;
     public Slash slash;
+    public FireBall fireBall;
 
     public int lastDir = 0;
 
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
         attackList.Add(shoot);
         attackList.Add(stab);
         attackList.Add(slash);
+        attackList.Add(fireBall);
     
         if (GameLoader.playerType == 1)
         { 

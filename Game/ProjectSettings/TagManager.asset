@@ -23,6 +23,7 @@ TagManager:
   - Wolf
   - CaveEntrance
   - Bomb
+  - FireBall
   layers:
   - Default
   - TransparentFX
