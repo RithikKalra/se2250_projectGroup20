@@ -280,4 +280,14 @@ public class PlayerController : MonoBehaviour
     {
         return jumpedLast;
     }
+
+    public void HealPlayer()
+    {
+        healthSystem.SetHealth(healthSystem.GetHealth() + 100);
+
+        if(healthSystem.GetHealth() > healthSystem.GetHealthMax())
+        {
+            healthSystem.SetHealth(healthSystem.GetHealthMax());
+        }
+    }
 }

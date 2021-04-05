@@ -32,7 +32,7 @@ public class MerchantController : MonoBehaviour
     public Sprite dimentionalKey;
     public Sprite ninjaScroll;
     public Sprite ninjaWeaponUpgrade;
-
+    public Sprite drinkPotion;
 
     void Awake()
     {
@@ -185,6 +185,23 @@ public class MerchantController : MonoBehaviour
         {
             noMoneyButton.gameObject.SetActive(true);
         }
+    }
+    public void OnClickHealth()
+    {
+        if (player.coinBalance >= 100)
+        {
+            player.coinBalance -= 100;
+
+            player.HealPlayer();
+            upgradeDisplay.sprite = drinkPotion;
+            upgrade.gameObject.SetActive(true);
+            Invoke("clearAllUpgrades", 2);
+
+        }
+        else
+        {
+            noMoneyButton.gameObject.SetActive(true);
+        }      
     }
     public void clearAllUpgrades()
     {

@@ -12,10 +12,25 @@ public class HealthSystem
         this.health = health;
         healthMax = health;
     }
-
+ 
     public int GetHealth()
     {
         return health;
+    }
+    public void SetHealth(int health)
+    {
+        this.health = health;
+
+        if (OnHealthChanged != null)
+            OnHealthChanged(this, EventArgs.Empty);
+    }
+    public int GetHealthMax()
+    {
+        return healthMax;
+    }
+    public void SetHealthMax(int healthMax)
+    {
+        this.healthMax = healthMax;
     }
 
     public float GetHealthPercent()
