@@ -24,6 +24,7 @@ TagManager:
   - CaveEntrance
   - Bomb
   - FireBall
+  - Heart
   layers:
   - Default
   - TransparentFX

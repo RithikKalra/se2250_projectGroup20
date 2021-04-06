@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public int coinBalance;
     public TMP_Text coinText;
+    public GameObject hpIncrease;
 
     private Rigidbody2D rb2d;
     public float moveSpeed = 2.0f;
@@ -78,8 +79,9 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.sprite = wizardSprite;
             //Add code unique to the wizard
-        } 
+        }
 
+        hpIncrease.gameObject.SetActive(false);
     }
 
     void Update()
@@ -131,6 +133,17 @@ public class PlayerController : MonoBehaviour
             Destroy(go);
             hasCrystal = true;
             itemHolder.sprite = crystal;
+        }
+        if (other.tag.Equals("Heart"))
+        {
+            Transform rootT = other.gameObject.transform.root;
+            GameObject go = rootT.gameObject;
+            Destroy(go);
+
+            hpIncrease.gameObject.SetActive(true);
+            healthSystem.SetHealthMax(healthSystem.GetHealthMax() + 50);
+            healthSystem.SetHealth(healthSystem.GetHealthMax());
+            Invoke("ClearText", 2);
         }
     }
 
@@ -291,5 +304,10 @@ public class PlayerController : MonoBehaviour
         {
             healthSystem.SetHealth(healthSystem.GetHealthMax());
         }
+    }
+
+    public void ClearText()
+    {
+        hpIncrease.gameObject.SetActive(false);
     }
 }

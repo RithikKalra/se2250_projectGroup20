@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public SlimeMovement slimeMovement;
     public Transform Coin;
     public Transform crystal;
+    public Transform heart;
 
     public TurnController turnController;
 
@@ -48,7 +49,6 @@ public class EnemyController : MonoBehaviour
         healthBarTransform.transform.parent = gameObject.transform;
 
         hb.Setup(healthSystem);
-       
     }
 
     void Update()
@@ -88,6 +88,7 @@ public class EnemyController : MonoBehaviour
                 turnController.Remove(turnController.GetElement(3));
 
                 Instantiate(crystal, new Vector3(-24.8f, -9.5f, 0), Quaternion.identity);
+                Instantiate(heart, pos, Quaternion.identity);
             }
             else
             {
