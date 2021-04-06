@@ -60,27 +60,30 @@ public class PlayerController : MonoBehaviour
 
         hb.Setup(healthSystem);
 
-        currentAttack = shoot;
-        attackList.Add(shoot);
-        attackList.Add(stab);
-        attackList.Add(slash);
+        
+        
         attackList.Add(fireBall);
         attackList.Add(fireStorm);
     
         if (GameLoader.playerType == 1)
         { 
             spriteRenderer.sprite = knightSprite;
-            //Add code unique to the knight
+            attackList.Add(stab);
+            attackList.Add(slash);
+            currentAttack = stab;
         }
         else if(GameLoader.playerType == 2)
         {
             spriteRenderer.sprite = ninjaSprite;
-            //Add code unique to the ninja
+            attackList.Add(shoot);
+            currentAttack = shoot;
         }
         else
         {
             spriteRenderer.sprite = wizardSprite;
-            //Add code unique to the wizard
+            attackList.Add(fireBall);
+            attackList.Add(fireStorm);
+            currentAttack = fireBall;
         }
 
         hpIncrease.gameObject.SetActive(false);

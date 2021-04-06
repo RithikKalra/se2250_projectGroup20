@@ -91,8 +91,8 @@ public class bombSlimeMovement : EnemyMovement
             ex3.tag="Bomb";
             ex4.SetActive(true);
             ex4.tag="Bomb";
-
-            gameObject.SetActive(false);
+            gameObject.GetComponent<EnemyController>().healthSystem.Damage(200);
+            //gameObject.SetActive(false);
         }
     }
 

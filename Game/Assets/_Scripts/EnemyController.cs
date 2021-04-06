@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     private EnemyMovement marker;
 
     public Transform HealthBar;
-    private HealthSystem healthSystem;
+    public HealthSystem healthSystem;
 
     public EnemyController enemy;
     public EnemyController slimeEnemy;
