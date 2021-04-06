@@ -25,6 +25,7 @@ TagManager:
   - Bomb
   - FireBall
   - Heart
+  - FireStorm
   layers:
   - Default
   - TransparentFX

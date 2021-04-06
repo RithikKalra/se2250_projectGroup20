@@ -5468,7 +5468,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 391666122}
   m_HandleRect: {fileID: 391666121}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5545,7 +5545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000021184018}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1004216499
@@ -5566,6 +5566,7 @@ GameObject:
   - component: {fileID: 1004216500}
   - component: {fileID: 1004216508}
   - component: {fileID: 1004216509}
+  - component: {fileID: 1004216510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5631,6 +5632,7 @@ MonoBehaviour:
   shoot: {fileID: 1004216507}
   slash: {fileID: 1004216508}
   fireBall: {fileID: 1004216509}
+  fireStorm: {fileID: 1004216510}
   lastDir: 0
 --- !u!212 &1004216502
 SpriteRenderer:
@@ -5794,6 +5796,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 4514416409301864023, guid: 05ef060b295f34b74ac3d5caeb4e326b, type: 3}
+--- !u!114 &1004216510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004216499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc38d908624349e2b9f16980c5c4219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireStorm1: {fileID: 3907028253878252054, guid: a4f488ac93cdd4f938be0d6ac8ca9809,
+    type: 3}
+  fireStorm2: {fileID: 3907028253878252054, guid: a4f488ac93cdd4f938be0d6ac8ca9809,
+    type: 3}
+  active1: 0
+  active2: 0
 --- !u!1 &1008915214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,7 +6239,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 183997055}
   m_HandleRect: {fileID: 183997054}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -105555,7 +105575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000333786, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.000021184018}
   m_SizeDelta: {x: 0, y: 267.75647}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1445137489

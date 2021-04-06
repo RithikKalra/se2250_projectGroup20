@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public Shoot shoot;
     public Slash slash;
     public FireBall fireBall;
+    public FireStorm fireStorm;
 
     public int lastDir = 0;
 
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         attackList.Add(stab);
         attackList.Add(slash);
         attackList.Add(fireBall);
+        attackList.Add(fireStorm);
     
         if (GameLoader.playerType == 1)
         { 
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if(other.tag.Equals("Slime"))
+        if(other.tag.Equals("Slime")||other.tag.Equals("FireStorm"))
         {         
             healthSystem.Damage(10);
         }
