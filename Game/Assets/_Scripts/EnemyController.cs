@@ -69,24 +69,6 @@ public class EnemyController : MonoBehaviour
                     Instantiate(Coin, pos, Quaternion.identity);
                 }
 
-                slimeLocation = new Vector3(x, y, 0);
-                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
-                turnController.Add(slimeEnemy);
-
-                slimeLocation = new Vector3(x-1, y, 0);
-                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
-                turnController.Add(slimeEnemy);
-
-                slimeLocation = new Vector3(x-1, y-1, 0);
-                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
-                turnController.Add(slimeEnemy);
-
-                slimeLocation = new Vector3(x, y-1, 0);
-                Instantiate(slimeEnemy, slimeLocation, Quaternion.identity);
-                turnController.Add(slimeEnemy);
-
-                turnController.Remove(turnController.GetElement(3));
-
                 Instantiate(crystal, new Vector3(-24.8f, -9.5f, 0), Quaternion.identity);
                 Instantiate(heart, pos, Quaternion.identity);
             }
