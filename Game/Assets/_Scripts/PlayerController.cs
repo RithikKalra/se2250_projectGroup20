@@ -150,6 +150,10 @@ public class PlayerController : MonoBehaviour
             healthSystem.SetHealth(healthSystem.GetHealthMax());
             Invoke("ClearText", 2);
         }
+        if (other.tag.Equals("Smasher"))
+        {
+            healthSystem.Damage(50);
+        }
     }
 
     public void GameOver()

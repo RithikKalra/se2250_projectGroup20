@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7207674731821460317}
   m_Layer: 0
   m_Name: bombSlime
-  m_TagString: Untagged
+  m_TagString: BossSlime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   slimeMovement: {fileID: 0}
   Coin: {fileID: 3673740767574145857, guid: 0e8a73a263878aa4b854bf5b2243dab4, type: 3}
   crystal: {fileID: 0}
+  heart: {fileID: 0}
   turnController: {fileID: 0}
   Marker: {fileID: 0}
   isBoss: 0
