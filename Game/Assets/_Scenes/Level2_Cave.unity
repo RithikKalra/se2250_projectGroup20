@@ -138,6 +138,8 @@ GameObject:
   - component: {fileID: 67862749}
   - component: {fileID: 67862748}
   - component: {fileID: 67862747}
+  - component: {fileID: 67862757}
+  - component: {fileID: 67862756}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -270,8 +272,8 @@ MonoBehaviour:
   stab: {fileID: 67862751}
   shoot: {fileID: 67862750}
   slash: {fileID: 67862747}
-  fireBall: {fileID: 0}
-  fireStorm: {fileID: 0}
+  fireBall: {fileID: 67862757}
+  fireStorm: {fileID: 67862756}
   lastDir: 0
 --- !u!114 &67862753
 MonoBehaviour:
@@ -354,6 +356,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67862756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67862746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc38d908624349e2b9f16980c5c4219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireStorm1: {fileID: 3907028253878252054, guid: a4f488ac93cdd4f938be0d6ac8ca9809,
+    type: 3}
+  fireStorm2: {fileID: 3907028253878252054, guid: a4f488ac93cdd4f938be0d6ac8ca9809,
+    type: 3}
+  active1: 0
+  active2: 0
+--- !u!114 &67862757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67862746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1219a511551954e4a93d516d438c8026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 4514416409301864023, guid: 05ef060b295f34b74ac3d5caeb4e326b, type: 3}
 --- !u!114 &227521575 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 973362791236068569, guid: fa90358737768d04bab75cc3dc81fd08,
