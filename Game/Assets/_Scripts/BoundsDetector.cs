@@ -16,6 +16,8 @@ public class BoundsDetector : MonoBehaviour
     private GameObject caveEntrance;
     public bool isProximityCave = false;
 
+    
+
     void Awake()
     {
         merchant = GameObject.FindWithTag("ShopKeep");
@@ -36,7 +38,7 @@ public class BoundsDetector : MonoBehaviour
     
     void LateUpdate()
     {
-
+        
         if (Vector3.Distance(transform.position, merchant.transform.position) < 2)
             isProximityMerchant = true;
         else
@@ -46,10 +48,10 @@ public class BoundsDetector : MonoBehaviour
             isProximityTutTerry = true;
         else
             isProximityTutTerry = false;
-
         if (Vector3.Distance(transform.position, caveEntrance.transform.position) < 2)
             isProximityCave = true;
         else
             isProximityCave = false;
+
     }
 }

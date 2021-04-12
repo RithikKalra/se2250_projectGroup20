@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8694812741154974748}
   - component: {fileID: 2145020906264353478}
   m_Layer: 0
-  m_Name: Smasher 1
+  m_Name: Smasher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +54,15 @@ MonoBehaviour:
   pVertical: 3
   nVertical: -3
   isBoss: 0
+  counter: 0
+  topLeft: {fileID: 0}
+  topMiddle: {fileID: 0}
+  topRight: {fileID: 0}
+  bottomLeft: {fileID: 0}
+  bottomMiddle: {fileID: 0}
+  bottomRight: {fileID: 0}
+  centerLeft: {fileID: 0}
+  centerRight: {fileID: 0}
 --- !u!114 &8694812741154974748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a01fe690af4a124f94bdf2afa016c3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6e46e707e116cc458116a2e119b8e80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
