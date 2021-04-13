@@ -106,6 +106,7 @@ MonoBehaviour:
   slimeMovement: {fileID: 0}
   Coin: {fileID: 3673740767574145857, guid: 0e8a73a263878aa4b854bf5b2243dab4, type: 3}
   crystal: {fileID: 0}
+  heart: {fileID: 0}
   turnController: {fileID: 0}
   Marker: {fileID: 0}
   isBoss: 0
@@ -204,7 +205,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 859c3b5a0e1409042bc85a42831790bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

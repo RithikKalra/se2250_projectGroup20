@@ -14,6 +14,8 @@ public class CaveController : MonoBehaviour
     public GameObject nokeyText;
     public GameObject yeskeyText;
 
+    private bool isOpen = false;
+
     void Awake()
     {
         bndDetect = GameObject.Find("Player").GetComponent<BoundsDetector>();
@@ -42,7 +44,11 @@ public class CaveController : MonoBehaviour
 
     public void OnClickInvestigate()
     {
-        if (player.hasKey)
+        if (isOpen)
+        {
+            SceneManager.LoadScene("Level2_Cave");
+        }
+        else if (player.hasKey)
         {
             yeskeyText.gameObject.SetActive(true);
         }
@@ -54,7 +60,8 @@ public class CaveController : MonoBehaviour
     }
     public void OnClickKey()
     {
-        SceneManager.LoadScene("Level2_Cave");
+        yeskeyText.gameObject.SetActive(false);
+        isOpen = true;
     }
     public void OnClickExit()
     {

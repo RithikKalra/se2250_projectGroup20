@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4559468894534463061}
   - component: {fileID: 1040509899822726519}
   - component: {fileID: 4128181814408126844}
-  - component: {fileID: 625690176722817785}
   m_Layer: 0
   m_Name: ClosedChest
   m_TagString: Untagged
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a504747bb9e29b742b0b5f36706c6b05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,24 +98,4 @@ MonoBehaviour:
   closedChest: {fileID: 21300000, guid: a504747bb9e29b742b0b5f36706c6b05, type: 3}
   skull: {fileID: 21300000, guid: b6e46e707e116cc458116a2e119b8e80, type: 3}
   chestType: nothing
-  openChestBtn: {fileID: 0}
-  nothingMessage: {fileID: 0}
---- !u!95 &625690176722817785
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7737548605224290597}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e611c5865d258f04dbe8e08d488bb132, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  anim: {fileID: 0}

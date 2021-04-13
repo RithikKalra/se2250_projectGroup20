@@ -8,9 +8,13 @@ public class ChestController : MonoBehaviour
     public Sprite closedChest;
     public Sprite skull;
     public string chestType;
+    public Animator anim;
+    public GameObject jailkey;
+
+    private bool isOpen = false;
 
     public GameObject openChestBtn;
-    public GameObject nothingMessage;
+    private GameObject nothingMessage;
     private GameObject player;
 
     private BoundsDetector bndDetect;
@@ -18,19 +22,22 @@ public class ChestController : MonoBehaviour
     void Awake()
     {
         bndDetect = GameObject.Find("Player").GetComponent<BoundsDetector>();
+        nothingMessage = GameObject.FindWithTag("ChestOpen");
         player = GameObject.Find("Player");
     }
     // Start is called before the first frame update
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
         openChestBtn.gameObject.SetActive(false);
         nothingMessage.gameObject.SetActive(false);
+        jailkey.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 1.5f)
+        if (Vector3.Distance(transform.position, player.transform.position) < 1.5f && !isOpen)
         {
             openChestBtn.gameObject.SetActive(true);
         }
@@ -38,9 +45,7 @@ public class ChestController : MonoBehaviour
         {
             openChestBtn.gameObject.SetActive(false);
             nothingMessage.gameObject.SetActive(false);
-        }
-
-         
+        }     
     }
 
     public void OnClickOpen()
@@ -51,6 +56,10 @@ public class ChestController : MonoBehaviour
         }
         else if (chestType.Equals("key"))
         {
+            isOpen = true;
+            anim.SetTrigger("Active");
+            Invoke("obtainKey", 2);
+            Invoke("clearScreen", 5);
         }
         else if (chestType.Equals("heart"))
         {
@@ -59,5 +68,13 @@ public class ChestController : MonoBehaviour
         {
             //Add mimic code here
         }
+    }
+    public void obtainKey()
+    {
+        jailkey.gameObject.SetActive(true);
+    }
+    public void clearScreen()
+    {
+        jailkey.gameObject.SetActive(false);
     }
 }

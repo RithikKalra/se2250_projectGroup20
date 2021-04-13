@@ -26,6 +26,7 @@ TagManager:
   - FireBall
   - Heart
   - FireStorm
+  - ChestOpen
   layers:
   - Default
   - TransparentFX
