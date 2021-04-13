@@ -15,6 +15,8 @@ public class SlimeMovement : EnemyMovement
     public bool isBoss = false;
     private float moveDistance = 1f;
 
+    public Animator animator;
+
     void Start(){
 
         Marker = Instantiate(Marker, TargetLocation, Quaternion.identity);
@@ -35,6 +37,8 @@ public class SlimeMovement : EnemyMovement
     
         System.Random random = new System.Random();
         int randomizer = random.Next(1, 5);
+
+        
 
         if (randomizer == 1)
         {   
