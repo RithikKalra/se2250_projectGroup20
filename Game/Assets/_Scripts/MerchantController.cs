@@ -19,6 +19,8 @@ public class MerchantController : MonoBehaviour
     private GameObject mPrompt;
     private GameObject sMenu;
     private GameObject noMoneyButton;
+    public GameObject helpText;
+
 
     private bool keyBought = false;
 
@@ -43,13 +45,20 @@ public class MerchantController : MonoBehaviour
         mPrompt = GameObject.FindWithTag("MerchantPrompt");
         sMenu = GameObject.FindWithTag("ShopMenu");
         noMoneyButton = GameObject.FindWithTag("NoMoney");
+
+        GameLoader.level = 2;
     }
     // Start is called before the first frame update
     void Start()
     {
+        if(GameLoader.level == 2)
+        {
+            helpText.gameObject.SetActive(false);
+        }
+        
         mPrompt.gameObject.SetActive(false);
 
-        if(GameLoader.playerType == 2)
+        if (GameLoader.playerType == 2)
         {
             skillImg1.sprite = ninjaScroll;
             skillImg2.sprite = ninjaScroll;
@@ -67,8 +76,7 @@ public class MerchantController : MonoBehaviour
     void Update()
     {
         if (bndDetect.isProximityMerchant)
-        {
-            //Run methods that involve merchant interactions here!
+        { 
             shop.gameObject.SetActive(true);
         }
         else
@@ -84,7 +92,14 @@ public class MerchantController : MonoBehaviour
     //Button methods
     public void OnClickShop()
     {
-        mPrompt.gameObject.SetActive(true);
+        if (!player.hasDongeonKey)
+        {
+            helpText.gameObject.SetActive(true);
+        }
+        else
+        {
+            mPrompt.gameObject.SetActive(true);
+        }
     }
 
     public void OnClickContd()
@@ -95,7 +110,8 @@ public class MerchantController : MonoBehaviour
 
     public void OnClickExit()
     {
-        sMenu.SetActive(false);
+        sMenu.gameObject.SetActive(false);
+        helpText.gameObject.SetActive(false);
     }
 
     public void OnClickNoMoney()

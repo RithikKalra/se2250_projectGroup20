@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public bool hasCrystal = false;
     public bool hasKey = false;
+    public bool hasDongeonKey = false;
     public Sprite crystal;
     public Sprite key;
     public Image itemHolder;

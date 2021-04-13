@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour
 {
+    public PlayerController rPlayer;
+
     public Sprite openChest;
     public Sprite closedChest;
     public Sprite skull;
@@ -11,7 +13,7 @@ public class ChestController : MonoBehaviour
     public Animator anim;
     public GameObject jailkey;
 
-    private bool isOpen = false;
+    public bool isOpen = false;
 
     public GameObject openChestBtn;
     private GameObject nothingMessage;
@@ -57,9 +59,10 @@ public class ChestController : MonoBehaviour
         else if (chestType.Equals("key"))
         {
             isOpen = true;
+            rPlayer.hasDongeonKey = true;
             anim.SetTrigger("Active");
-            Invoke("obtainKey", 2);
-            Invoke("clearScreen", 5);
+            Invoke("obtainKey", 1);
+            Invoke("clearScreen", 4);
         }
         else if (chestType.Equals("heart"))
         {

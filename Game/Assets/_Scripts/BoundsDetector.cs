@@ -16,6 +16,9 @@ public class BoundsDetector : MonoBehaviour
     private GameObject caveEntrance;
     public bool isProximityCave = false;
 
+    private GameObject jailCell;
+    public bool isProximityJail = false;
+
     
 
     void Awake()
@@ -23,6 +26,7 @@ public class BoundsDetector : MonoBehaviour
         merchant = GameObject.FindWithTag("ShopKeep");
         tutTerry = GameObject.FindWithTag("TutTerry");
         caveEntrance = GameObject.FindWithTag("CaveEntrance");
+        jailCell = GameObject.FindWithTag("JailCell");
     }
     // Start is called before the first frame update
     void Start()
@@ -38,20 +42,29 @@ public class BoundsDetector : MonoBehaviour
     
     void LateUpdate()
     {
-        
+        if(GameLoader.level == 1)
+        {
+            if (Vector3.Distance(transform.position, tutTerry.transform.position) < 2)
+                isProximityTutTerry = true;
+            else
+                isProximityTutTerry = false;
+
+            if (Vector3.Distance(transform.position, caveEntrance.transform.position) < 2)
+                isProximityCave = true;
+            else
+                isProximityCave = false;
+        }
+        if(GameLoader.level == 2 && !CellController.destroyed)
+        {
+            if (Vector3.Distance(transform.position, jailCell.transform.position) < 2)
+                isProximityJail = true;
+            else
+                isProximityJail = false;
+        }
+
         if (Vector3.Distance(transform.position, merchant.transform.position) < 2)
             isProximityMerchant = true;
         else
             isProximityMerchant = false;
-
-        if (Vector3.Distance(transform.position, tutTerry.transform.position) < 2)
-            isProximityTutTerry = true;
-        else
-            isProximityTutTerry = false;
-        if (Vector3.Distance(transform.position, caveEntrance.transform.position) < 2)
-            isProximityCave = true;
-        else
-            isProximityCave = false;
-
     }
 }

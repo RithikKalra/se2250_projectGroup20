@@ -46,6 +46,7 @@ public class CaveController : MonoBehaviour
     {
         if (isOpen)
         {
+            GameLoader.level = 2;
             SceneManager.LoadScene("Level2_Cave");
         }
         else if (player.hasKey)
