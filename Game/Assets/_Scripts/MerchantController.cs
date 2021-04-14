@@ -46,7 +46,7 @@ public class MerchantController : MonoBehaviour
         sMenu = GameObject.FindWithTag("ShopMenu");
         noMoneyButton = GameObject.FindWithTag("NoMoney");
 
-        GameLoader.level = 2;
+        GameLoader.level = 1;
     }
     // Start is called before the first frame update
     void Start()
@@ -92,7 +92,7 @@ public class MerchantController : MonoBehaviour
     //Button methods
     public void OnClickShop()
     {
-        if (!player.hasDongeonKey)
+        if (!player.hasDongeonKey && GameLoader.level == 2)
         {
             helpText.gameObject.SetActive(true);
         }
