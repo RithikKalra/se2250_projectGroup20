@@ -11,6 +11,8 @@ public class TutTerryController : MonoBehaviour
     private GameObject talk;
     private GameObject ttPrompt;
     private GameObject qMenu;
+    public GameObject controls;
+    public GameObject tips;
 
     public Transform movePoint;
     public Transform HealthBar;
@@ -44,6 +46,8 @@ public class TutTerryController : MonoBehaviour
             talk.gameObject.SetActive(false);
             ttPrompt.gameObject.SetActive(false);
             qMenu.gameObject.SetActive(false);
+            controls.gameObject.SetActive(false);
+            tips.gameObject.SetActive(false);
         }
 
         if (isEnemy && healthSystem.GetHealth() <= 0)
@@ -91,6 +95,9 @@ public class TutTerryController : MonoBehaviour
     public void OnClickExit()
     {
         qMenu.gameObject.SetActive(false);
+        controls.gameObject.SetActive(false);
+        tips.gameObject.SetActive(false);
+
     }
     public void OnClickChallenge()
     {
@@ -112,7 +119,12 @@ public class TutTerryController : MonoBehaviour
     }
     public void OnClickTutorial()
     {
-        //More complicated will figure out after challenge works
-        print("This is the tutorial");
+        qMenu.gameObject.SetActive(false);
+        controls.gameObject.SetActive(true);
+    }
+    public void OnClickTips()
+    {
+        qMenu.gameObject.SetActive(false);
+        tips.gameObject.SetActive(true);
     }
 }

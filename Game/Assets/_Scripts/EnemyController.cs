@@ -35,12 +35,17 @@ public class EnemyController : MonoBehaviour
         Vector3 pos;
         if (isBoss)
         {
-            healthSystem = new HealthSystem(50);
+            healthSystem = new HealthSystem(200);
             pos = gameObject.transform.position + new Vector3(-0.5f, 1f, 0f);
+        }
+        else if(gameObject == GameObject.FindWithTag("Wolf"))
+        {
+            healthSystem = new HealthSystem(150);
+            pos = gameObject.transform.position + new Vector3(-0.5f, 0.5f, 0f);
         }
         else
         {
-            healthSystem = new HealthSystem(100);
+            healthSystem = new HealthSystem(80);
             pos = gameObject.transform.position + new Vector3(-0.5f, 0.5f, 0f);
         }
 
@@ -71,6 +76,11 @@ public class EnemyController : MonoBehaviour
 
                 Instantiate(crystal, new Vector3(-24.8f, -9.5f, 0), Quaternion.identity);
                 Instantiate(heart, pos, Quaternion.identity);
+            }
+            else if(gameObject == GameObject.FindWithTag("Wolf"))
+            {
+                Instantiate(Coin, pos, Quaternion.identity);
+                Instantiate(Coin, pos, Quaternion.identity);
             }
             else
             {

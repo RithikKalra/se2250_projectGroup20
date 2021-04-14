@@ -32,9 +32,9 @@ public class CellController : MonoBehaviour
 
     public void OnClickOpenCell()
     {
+        player.coinBalance += 1000;
         Destroy(gameObject);
         destroyed = true;
         openCell.gameObject.SetActive(false);
-
     }
 }

@@ -1,17 +1,13 @@
 sceneSetups:
 - path: Assets/_Scenes/PlayerSelectMenu.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/_Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/_Scenes/Level2_Cave.unity
+- path: Assets/_Scenes/SampleScene.unity
   isLoaded: 0
   isActive: 0
   isSubScene: 0
-- path: Assets/_Scenes/BossRoom.unity
+- path: Assets/_Scenes/Level2_Cave.unity
   isLoaded: 0
   isActive: 0
   isSubScene: 0

@@ -12,6 +12,8 @@ public class ChestController : MonoBehaviour
     public string chestType;
     public Animator anim;
     public GameObject jailkey;
+    public Transform Coin;
+
 
     public bool isOpen = false;
 
@@ -64,12 +66,9 @@ public class ChestController : MonoBehaviour
             Invoke("obtainKey", 1);
             Invoke("clearScreen", 4);
         }
-        else if (chestType.Equals("heart"))
-        {
-        }
         else
         {
-            //Add mimic code here
+            nothingMessage.gameObject.SetActive(true);
         }
     }
     public void obtainKey()

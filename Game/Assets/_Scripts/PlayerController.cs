@@ -36,8 +36,9 @@ public class PlayerController : MonoBehaviour
     public Sprite crystal;
     public Sprite key;
     public Image itemHolder;
+    public float damageMultiplier = 1;
 
-    private List<Attack> attackList = new List<Attack>();
+    public List<Attack> attackList = new List<Attack>();
     public Attack currentAttack; 
     public Stab stab;
     public Shoot shoot;
@@ -52,7 +53,15 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
 
-        healthSystem = new HealthSystem(100);
+        if(GameLoader.level == 1)
+        {
+            healthSystem = new HealthSystem(100);
+        }
+        else
+        {
+            healthSystem = new HealthSystem(150);
+        }
+        
 
         Transform healthBarTransform = Instantiate(HealthBar, new Vector3(0f, 0.5f), Quaternion.identity);
         HealthBar hb = healthBarTransform.GetComponent<HealthBar>();
@@ -61,16 +70,11 @@ public class PlayerController : MonoBehaviour
 
         hb.Setup(healthSystem);
 
-        
-        
-        attackList.Add(fireBall);
-        attackList.Add(fireStorm);
-    
+           
         if (GameLoader.playerType == 1)
         { 
             spriteRenderer.sprite = knightSprite;
             attackList.Add(stab);
-            attackList.Add(slash);
             currentAttack = stab;
         }
         else if(GameLoader.playerType == 2)
@@ -83,7 +87,6 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.sprite = wizardSprite;
             attackList.Add(fireBall);
-            attackList.Add(fireStorm);
             currentAttack = fireBall;
         }
 
@@ -153,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.tag.Equals("Smasher"))
         {
-            healthSystem.Damage(50);
+            healthSystem.Damage(200);
         }
     }
 
@@ -278,11 +281,11 @@ public class PlayerController : MonoBehaviour
     {
         if (getJumpedLast())
         {
-            return currentAttack.getDamage() * 2;
+            return currentAttack.getDamage() * 2* damageMultiplier;
         }
         else
         {
-            return currentAttack.getDamage();
+            return currentAttack.getDamage()* damageMultiplier;
         }
     }
 
