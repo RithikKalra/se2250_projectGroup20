@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if(other.tag.Equals("Slime")||other.tag.Equals("FireStorm"))
+        if(other.tag.Equals("Slime")||other.tag.Equals("FireStorm")||other.tag.Equals("FireBlast"))
         {         
             healthSystem.Damage(10);
         }

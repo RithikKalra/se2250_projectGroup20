@@ -28,6 +28,7 @@ TagManager:
   - FireStorm
   - ChestOpen
   - JailCell
+  - FireBlast
   layers:
   - Default
   - TransparentFX
